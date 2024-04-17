@@ -1,0 +1,37 @@
+<h1>Arma tu PC</h1>
+<div>
+    <label title="tamanyoRam">Tamaño de la RAM: </label>
+    @for (ram of tiposRam; track $index) {
+        <label for="ram" title="ram" >{{ ram }}</label>
+        <input type="radio" id="ram" name="ram" [value]="ram" [(ngModel)]="ramSeleccionada">
+    }
+</div>
+<div>
+    <label title="procesador">Tipo de procesador: </label>
+    <select id="procesador" [(ngModel)]="procesadorSeleccionado">
+        @for (procesador of procesadores; track $index) {
+            <option [value]="procesador">{{ procesador }}</option>
+        }
+    </select>
+<div>
+    <label title="gráfica">Tarjeta gráfica: </label>
+    <input type="checkbox" id="tarjetaGrafica" [(ngModel)]="tarjetaGraficaSeleccionada" value="tarjetaGrafica=true">
+</div>
+<div>
+    <label title="tipoDiscoDuro">Discos duros: </label>
+    @for (discoDuro of discosDuros; track $index) {
+        <label for="discoDuro" title="discoDuro">{{ discoDuro }}</label>
+        <input type="radio" id="discoDuro" name="discoDuro" [value]="discoDuro" [(ngModel)]="discoDuroSeleccionado">
+    }
+</div>
+<div>
+    <label title="alimentacion">Fuentes de alimentación: </label>
+    <select id="alimentacion" [(ngModel)]="fuenteAlimentacionSeleccionada">
+        @for (alimentacion of fuentesAlimentacion; track $index) {
+            <option [value]="alimentacion">{{ alimentacion }}</option>
+        }
+    </select>
+</div>
+<div>
+    <button type="submit" (click)="mostrarInformacion()">Mostrar información</button>
+</div>

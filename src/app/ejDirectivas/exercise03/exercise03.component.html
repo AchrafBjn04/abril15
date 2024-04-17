@@ -1,0 +1,26 @@
+<h1>Usando directivas</h1>
+<div>
+    <label title="genero">Género: </label>
+    @for (genero of generos; track $index) {
+        <label title="genero">{{genero}}</label>
+        <input type="radio" id="genero" name="genero" [value]="genero" [(ngModel)]="generoSeleccionado">
+    }
+</div>
+<div>
+    <label title="nacionalidades">Nacionalidades: </label>
+    <select id="nacionalidades" [(ngModel)]="nacionalidadSeleccionada">
+        @for (nacionalidad of nacionalidades; track $index) {
+            <option [value]="nacionalidad">{{ nacionalidad }}</option>
+        }
+    </select>
+</div>
+<div>
+    <label>Lenguajes de programación: </label>
+    @for (lenguaje of lengProgramacion; track lenguaje; let i = $index) {
+        <label>{{lenguaje}}</label>
+        <input type="checkbox" [value]="lenguaje" [(ngModel)]="lengProgramacionSeleccionados[i]">
+    }
+</div>
+<div>
+    <button type="submit" (click)="mostrarInformacion()">Mostrar información</button>
+</div>
